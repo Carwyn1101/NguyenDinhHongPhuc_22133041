@@ -1,0 +1,5 @@
+package LapTrinhWeb_Cha.services;
+
+public interface IUserService {
+
+}
