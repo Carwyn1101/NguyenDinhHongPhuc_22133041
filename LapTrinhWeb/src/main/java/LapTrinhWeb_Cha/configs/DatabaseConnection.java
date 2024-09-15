@@ -44,7 +44,7 @@ public class DatabaseConnection {
 
 	public static void main(String[] args) {
 		try {
-			System.out.print(new DatabaseConnection().getConnection());
+			System.out.print(getConnection());
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -28,13 +28,20 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>jakarta.servlet.jsp.jstl</groupId>
 			<artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
 			<version>3.0.0</version>
 		</dependency>
 
+
+		<dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+			<version>3.0.0</version> <!-- hoặc phiên bản bạn cần -->
+			<scope>provided</scope>
+		</dependency>
 
 		<!--
 		https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
@@ -83,6 +90,7 @@
 		</dependency>
 
 	</dependencies>
+
 
 	<build>
 		<pluginManagement>

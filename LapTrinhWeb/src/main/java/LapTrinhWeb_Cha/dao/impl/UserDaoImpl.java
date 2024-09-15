@@ -49,7 +49,7 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 	@Override
 	public void insert(UserModel user) {
 
-		String sql = "INSERT INTO [Users](email, username, fullname, password, avatar, roleid,phone,createddate) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO [Users](email, username, fullname, password, avatar, roleid, phone, createDate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
 			conn = super.getConnection();
 			ps = conn.prepareStatement(sql);
