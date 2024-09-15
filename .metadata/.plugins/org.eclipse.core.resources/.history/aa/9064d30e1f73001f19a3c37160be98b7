@@ -1,0 +1,35 @@
+package LapTrinhWeb_Cha.controllers;
+
+import java.io.IOException;
+
+import LapTrinhWeb_Cha.services.impl.UserServiceImpl;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class ForgetPasswordController extends HttpServlet {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private UserServiceImpl userService = new UserServiceImpl();
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("username");
+        String newPassword = req.getParameter("newPassword");
+
+        try {
+            userService.resetPassword(username, newPassword);
+            resp.sendRedirect("login.jsp");
+        } catch (Exception e) {
+            req.setAttribute("error", e.getMessage());
+            RequestDispatcher dispatcher = req.getRequestDispatcher("forgetPassword.jsp");
+            dispatcher.forward(req, resp);
+        }
+    }
+
+}

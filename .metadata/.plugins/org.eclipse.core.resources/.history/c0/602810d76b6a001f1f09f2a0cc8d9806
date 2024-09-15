@@ -1,7 +1,0 @@
-package LapTrinhWeb_Cha.dao;
-
-public class IUserDao {
-	List(UserModels) > Find();
-	
-	User
-}

@@ -2,7 +2,7 @@ package LapTrinhWeb_Cha.controllers;
 
 import java.io.IOException;
 
-import LapTrinhWeb_Cha.Constant;
+import LapTrinhWeb_Cha.ultis.Constant;
 import LapTrinhWeb_Cha.services.impl.UserServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -62,12 +62,12 @@ public class RegisterController extends HttpServlet {
 			req.getRequestDispatcher(Constant.REGISTER).forward(req, resp);
 			return;
 		}
-		boolean isSuccess = service.register(username, password, email, fullname, phone);
+		boolean isSuccess = service.register(email, password, username , fullname, phone);
 		if (isSuccess) {
 			// SendMail sm = new SendMail();
 			// sm.sendMail(email, "Shopping.iotstar.vn", "Welcome to Shopping. Please
 			// Loginto use service. Thanks !");
-			req.setAttribute("alert", alertMsg);
+			//req.setAttribute("alert", alertMsg);
 			resp.sendRedirect(req.getContextPath() + "/login");
 		} else {
 			alertMsg = "System error!";

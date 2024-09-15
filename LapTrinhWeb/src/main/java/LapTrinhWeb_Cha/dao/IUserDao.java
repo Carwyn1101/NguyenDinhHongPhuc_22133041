@@ -1,5 +1,6 @@
 package LapTrinhWeb_Cha.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import LapTrinhWeb_Cha.models.UserModel;
@@ -21,4 +22,6 @@ public interface IUserDao {
 	boolean checkExistUsername(String username);
 
 	boolean checkExistPhone(String phone);
+	
+	void resetPassword(String username, String newPassword) throws SQLException;
 }

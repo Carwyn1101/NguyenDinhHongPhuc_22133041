@@ -1,8 +1,0 @@
-package LapTrinhWeb_Cha.dao;
-
-public class IUserDao {
-	List(UserModels) > FindAll();
-	
-	UserModels findOne(int id);
-	void insert (UserModels user);
-}

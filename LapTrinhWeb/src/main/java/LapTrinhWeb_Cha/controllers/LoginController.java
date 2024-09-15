@@ -11,8 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import LapTrinhWeb_Cha.Constant;
-
+import LapTrinhWeb_Cha.ultis.Constant;
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/login")
 
@@ -39,9 +38,13 @@ public class LoginController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		//ma hoa UTF-8 Tieng Viet
 		resp.setContentType("text/html");
 		resp.setCharacterEncoding("UTF-8");
 		req.setCharacterEncoding("UTF-8");
+		
+		//lay tham so tu view
+		
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		boolean isRememberMe = false;

@@ -1,0 +1,5 @@
+<form method="post" action="forgetPassword">
+    <input type="text" name="username" placeholder="Username" required />
+    <input type="password" name="newPassword" placeholder="New Password" required />
+    <input type="submit" value="Reset Password" />
+</form>

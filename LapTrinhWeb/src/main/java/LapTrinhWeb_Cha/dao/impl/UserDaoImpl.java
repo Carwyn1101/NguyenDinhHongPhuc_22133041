@@ -3,6 +3,7 @@ package LapTrinhWeb_Cha.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,9 +49,9 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 	@Override
 	public void insert(UserModel user) {
 
-		String sql = "INSERT INTO [User](email, username, fullname, password, avatar, roleid,phone,createddate) VALUES (?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO [Users](email, username, fullname, password, avatar, roleid,phone,createddate) VALUES (?,?,?,?,?,?,?,?)";
 		try {
-			conn = new DatabaseConnection().getConnection();
+			conn = super.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, user.getEmail());
 			ps.setString(2, user.getUserName());
@@ -64,7 +65,6 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 	public UserModel findByUserName(String username) {
 		String sql = "SELECT * FROM [Users] WHERE username = ? ";
 		try {
-			conn = new DatabaseConnection().getConnection();
+			conn = DatabaseConnection.getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, username);
 			rs = ps.executeQuery();
@@ -91,7 +91,7 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 				user.setAvatar(rs.getString("avatar"));
 				user.setRoleid(Integer.parseInt(rs.getString("roleid")));
 				user.setPhone(rs.getString("phone"));
-				user.setCreatedDate(rs.getDate("createdDate"));
+				user.setCreatedDate(rs.getDate("createDate"));
 				return user;
 			}
 		} catch (Exception e) {
@@ -103,9 +103,9 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 	@Override
 	public boolean checkExistEmail(String email) {
 		boolean duplicate = false;
-		String query = "select * from [user] where email = ?";
+		String query = "select * from [Users] where email = ?";
 		try {
-			conn = new DatabaseConnection().getConnection();
+			conn = super.getConnection();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
@@ -122,9 +122,9 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 	@Override
 	public boolean checkExistUsername(String username) {
 		boolean duplicate = false;
-		String query = "select * from [User] where username = ?";
+		String query = "select * from [Users] where username = ?";
 		try {
-			conn = new DatabaseConnection().getConnection();
+			conn = super.getConnection();
 			ps = conn.prepareStatement(query);
 			ps.setString(1, username);
 			rs = ps.executeQuery();
@@ -144,4 +144,13 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 		return false;
 	}
 
+	@Override
+	public void resetPassword(String username, String newPassword) throws SQLException {
+	    String query = "UPDATE Users SET password = ? WHERE username = ?";
+	    conn = super.getConnection();
+	    ps = conn.prepareStatement(query);
+	    ps.setString(2, newPassword);
+	    ps.setString(1, username);
+	    ps.executeUpdate();
+	}
 }
