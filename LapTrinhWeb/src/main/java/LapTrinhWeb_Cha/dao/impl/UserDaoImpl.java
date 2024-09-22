@@ -149,8 +149,23 @@ public class UserDaoImpl extends DatabaseConnection implements IUserDao {
 	    String query = "UPDATE Users SET password = ? WHERE username = ?";
 	    conn = super.getConnection();
 	    ps = conn.prepareStatement(query);
-	    ps.setString(2, newPassword);
-	    ps.setString(1, username);
+	    ps.setString(1, newPassword);
+	    ps.setString(2, username);
 	    ps.executeUpdate();
+	}
+	public void updateUserProfile(UserModel user)
+	{
+		// SQL code to update user's profile
+        String sql = "UPDATE Users SET fullname = ?, phone = ?, avatar = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, user.getFullName());
+            ps.setString(2, user.getPhone());
+            ps.setString(3, user.getAvatar());
+            ps.setInt(4, user.getId());
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 	}
 }

@@ -22,6 +22,8 @@ public interface IUserDao {
 	boolean checkExistUsername(String username);
 
 	boolean checkExistPhone(String phone);
-	
+
 	void resetPassword(String username, String newPassword) throws SQLException;
+
+	void updateUserProfile(UserModel user);
 }

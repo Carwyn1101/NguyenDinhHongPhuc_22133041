@@ -1,5 +1,10 @@
 package LapTrinhWeb_Cha.services.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import LapTrinhWeb_Cha.configs.DatabaseConnection;
 import LapTrinhWeb_Cha.dao.impl.UserDaoImpl;
 import LapTrinhWeb_Cha.models.UserModel;
 import LapTrinhWeb_Cha.services.IUserService;
@@ -63,4 +68,8 @@ public class UserServiceImpl implements IUserService {
 	public void resetPassword(String username, String newPassword) throws Exception {
 	    userDao.resetPassword(username, newPassword);	
 	}
+	
+	public void updateUserProfile(UserModel user) {
+		userDao.updateUserProfile(user);
+    }
 }
