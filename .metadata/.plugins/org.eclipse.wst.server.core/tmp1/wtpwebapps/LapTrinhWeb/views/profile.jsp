@@ -36,10 +36,11 @@
 					<img
 						src="${pageContext.request.contextPath}/uploads/${user.avatar}"
 						width="150" class="mt-3" alt="Avatar">
+					<!--  <p>Tên file: ${user.avatar}</p> -->
 				</c:if>
 				<c:if test="${empty user.avatar}">
 					<img
-						src="${pageContext.request.contextPath}/images/default-avatar.png"
+						src="${pageContext.request.contextPath}/uploads/default-avatar.png"
 						width="150" class="mt-3" alt="Default Avatar">
 				</c:if>
 			</div>

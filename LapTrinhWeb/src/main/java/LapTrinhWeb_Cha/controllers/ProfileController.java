@@ -26,7 +26,6 @@ public class ProfileController extends HttpServlet {
     	HttpSession session = req.getSession();
         UserModel user = (UserModel) session.getAttribute("account");
 
-        // Truyền thông tin người dùng sang JSP
         req.setAttribute("user", user);
         req.getRequestDispatcher("/views/profile.jsp").forward(req, resp);
     }
@@ -47,6 +46,7 @@ public class ProfileController extends HttpServlet {
         String fileName = filePart.getSubmittedFileName();
         if (fileName != null && !fileName.isEmpty()) {
             String uploadPath = getServletContext().getRealPath("") + File.separator + Constant.UPLOAD_DIR;
+            //String uploadPath = Constant.UPLOAD_DIR;
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdir();
             
