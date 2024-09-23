@@ -59,7 +59,7 @@ if ((rememberPassword != null && rememberPassword == false)) {
 	<header class="row">
 		<div class="col">
 			<div class="alert alert-primary col" align="center">
-				<h1>Đăng nhập tài khoản</h1>
+				<h1>LogIn</h1>
 			</div>
 		</div>
 	</header>
@@ -81,7 +81,7 @@ if ((rememberPassword != null && rememberPassword == false)) {
 					</div>
 
 					<div class="form-group">
-						<label for="password">Mật khẩu: </label> <input type="password"
+						<label for="password">Password: </label> <input type="password"
 							id="password" name="password" class="form-control"
 							value="<%=password%>" />
 					</div>
@@ -89,22 +89,21 @@ if ((rememberPassword != null && rememberPassword == false)) {
 					<div class="form-group mt-3" align="center">
 						<input type="checkbox" value="on" id="remember" name="remember"
 							<%=(username != null && !username.isEmpty()) ? "checked" : ""%> />
-						<label for="remember">Ghi nhớ đăng nhập</label>
+						<label for="remember">Remember</label>
 					</div>
 
 					<div class="form-group mt-3" align="center">
-						<button type="submit" class="btn btn-primary">Đăng nhập</button>
+						<button type="submit" class="btn btn-primary">Login</button>
 					</div>
 
 					<div class="form-group mt-3" align="center">
 						<button type="button" class="btn btn-secondary"
-							onclick="window.location.href='${pageContext.request.contextPath}/register'">Đăng
-							ký</button>
+							onclick="window.location.href='${pageContext.request.contextPath}/register'">Register</button>
 					</div>
 
 					<div class="form-group mt-3" align="center">
 						<a href="${pageContext.request.contextPath}/forgetPassword"
-							class="btn btn-link">Quên mật khẩu?</a>
+							class="btn btn-link">Forget Password?</a>
 					</div>
 
 				</form>

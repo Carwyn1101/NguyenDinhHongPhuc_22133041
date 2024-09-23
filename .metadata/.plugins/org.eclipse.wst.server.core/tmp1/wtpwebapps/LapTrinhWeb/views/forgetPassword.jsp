@@ -10,7 +10,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet">
-<title>Quên mật khẩu</title>
+<title>Forget Password</title>
 </head>
 <body>
 	<div class="container">
@@ -20,19 +20,18 @@
 					<c:if test="${error != null}">
 						<div class="alert alert-danger">${error}</div>
 					</c:if>
-					<h2 class="text-center mb-4">Đặt lại mật khẩu</h2>
+					<h2 class="text-center mb-4">Reset Password</h2>
 					<div class="form-group mb-3">
-						<label for="username">Tên đăng nhập:</label> <input type="text"
+						<label for="username">Username:</label> <input type="text"
 							id="username" name="username" class="form-control" required />
 					</div>
 					<div class="form-group mb-3">
-						<label for="newPassword">Mật khẩu mới:</label> <input
+						<label for="newPassword">NewPassword:</label> <input
 							type="password" id="newPassword" name="newPassword"
 							class="form-control" required />
 					</div>
 					<div class="form-group mt-3">
-						<button type="submit" class="btn btn-primary">Đặt lại mật
-							khẩu</button>
+						<button type="submit" class="btn btn-primary">Reset</button>
 					</div>
 				</form>
 			</div>
