@@ -16,6 +16,11 @@ import LapTrinhWeb_Cha.ultis.Constant;
 @WebServlet(urlPatterns = "/login")
 
 public class LoginController extends HttpServlet {
+	
+	public LoginController() {
+		super();
+	}
+	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession session = req.getSession(false);
 		if (session != null && session.getAttribute("account") != null) {

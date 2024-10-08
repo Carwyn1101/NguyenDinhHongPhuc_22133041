@@ -20,6 +20,16 @@
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>   
+	</filter-mapping>  
+	
+	<servlet>
+		<display-name>Login</display-name>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>LapTrinhWeb_Cha.controllers.LoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern></url-pattern>
+	</servlet-mapping> 
 
 </web-app>

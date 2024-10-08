@@ -34,7 +34,9 @@ UserModel account = (UserModel) session.getAttribute("account");
 					<li class="nav-item"><a class="nav-link" href="shop.html">Shop</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
-					</li>
+					</li>					
+					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/admin/categories">Category</a>
+					</li>			
 				</ul>
 			</div>
 			<div class="navbar align-self-center d-flex">

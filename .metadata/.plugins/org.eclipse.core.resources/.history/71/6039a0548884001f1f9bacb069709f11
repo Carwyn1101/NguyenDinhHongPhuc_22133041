@@ -1,0 +1,8 @@
+package LapTrinhWeb_Cha.controllers;
+
+public class Snippet {
+	public static void main(String[] args) {
+		LapTrinhWeb_Cha
+	}
+}
+

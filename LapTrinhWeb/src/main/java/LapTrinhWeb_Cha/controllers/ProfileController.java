@@ -44,12 +44,21 @@ public class ProfileController extends HttpServlet {
         // Handle file upload
         Part filePart = req.getPart("avatar");
         String fileName = filePart.getSubmittedFileName();
+//        if (fileName != null && !fileName.isEmpty()) {
+//            String uploadPath = getServletContext().getRealPath("") + File.separator + Constant.UPLOAD_DIR;
+//            //String uploadPath = Constant.UPLOAD_DIR;
+//            File uploadDir = new File(uploadPath);
+//            if (!uploadDir.exists()) uploadDir.mkdir();
+//            
+//            filePart.write(uploadPath + File.separator + fileName);
+//            user.setAvatar(fileName);  // Save the file name in user model
+//        }
         if (fileName != null && !fileName.isEmpty()) {
-            String uploadPath = getServletContext().getRealPath("") + File.separator + Constant.UPLOAD_DIR;
-            //String uploadPath = Constant.UPLOAD_DIR;
+            // Không dùng getServletContext().getRealPath("") khi đã có đường dẫn tuyệt đối
+            String uploadPath = Constant.UPLOAD_DIR;
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdir();
-            
+
             filePart.write(uploadPath + File.separator + fileName);
             user.setAvatar(fileName);  // Save the file name in user model
         }

@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ taglig prefix="c"%>
+<table>
+	<tr>
+		<th>STT</th>
+		<th>CategoryID</th>
+		<th>Images</th>
+		<th>CategoryName</th>
+
+		<th>Active</th>
+		<th>Action</th>
+	</tr>
+	<tr>
+		<td>Alfreds Futterkiste</td>
+		<td>Maria Anders</td>
+		<td>Germany</td>
+	</tr>
+	<c:forEach items="${listcate}" var="cate" varStatus="STT">
+		<td>${STT.index+1 }</td>
+		<td>${cate.categoryid} truong trong model
+		<c:url value="/image?fname=${cate.images }" var="imgUrl"></c:url>
+		<td><img height="150" width="200" src="${imgUrl}" /></td>
+		<td>${cate.name }</td>
+		<td><c:if test="${cate.isActive() ?"HoatDong":"BiKhoa"}"></td>
+		<td><a
+			href="<c:url value='/admin/category/edit?id=${cate.id }'/>"
+			class="center">Sửa</a> | <a
+			href="<c:url value='/admin/category/delete?id=${cate.id }'/>"
+			class="center">Xóa</a>
+		</td>
+		</tr>
+	</c:forEach>
+</table>
